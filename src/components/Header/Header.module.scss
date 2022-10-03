@@ -1,0 +1,43 @@
+.information {
+  display: inline-flex;
+  cursor: pointer;
+
+  .title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+}
+
+.navigation { 
+  display: flex;
+  background: rgb(0%, 33%, 100%);
+  margin: 0 auto;
+
+  .searchpanel {
+    width: 150%;
+    vertical-align: top;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navMenu {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+
+    li {
+      display: inline;
+      font-size: 20px;
+    }
+
+    .cart {
+      li {
+        margin-right: 30px;
+      }
+    }
+  }
+}

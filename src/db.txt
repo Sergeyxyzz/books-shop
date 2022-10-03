@@ -1,0 +1,402 @@
+const db = [
+  {
+    "id": "1",
+    "image": "images/london.jpg",
+    "title": "Морской Волк.",
+    "genre": "Приключения",
+    "author": "Джек Лондон",
+    "price": "800"
+  },
+  {
+    "id": "2",
+    "image": "images/martin_iden.jpg",
+    "title": "Мартин Иден.",
+    "genre": "Приключения",
+    "author": "Джек Лондон",
+    "price": "1000"
+  },
+  {
+    "id": "3",
+    "image": "images/white_fang.jpg",
+    "title": "Белый Клык.",
+    "genre": "Приключения",
+    "author": "Джек Лондон",
+    "price": "1000"
+  },
+  {
+    "id": "4",
+    "image": "images/20k.jpg",
+    "title": "20 000 лье под водой.",
+    "genre": "Приключения",
+    "author": "Жюль Верн",
+    "price": "500"
+  },
+  {
+    "id": "5",
+    "image": "images/aroundtheworld.jpg",
+    "title": "Вокруг света за 80 дней.",
+    "genre": "Приключения",
+    "author": "Жюль Верн",
+    "price": "1200"
+  },
+  {
+    "id": "6",
+    "image": "images/robinzon.jpg",
+    "title": "Робинзон Крузо.",
+    "genre": "Приключения",
+    "author": "Даниель Дефо",
+    "price": "1200"
+  },
+  {
+    "id": "7",
+    "image": "images/captaingrand.jpg",
+    "title": "Дети капитана Гранта.",
+    "genre": "Приключения",
+    "author": "Жюль Верн",
+    "price": "700"
+  },
+  {
+    "id": "8",
+    "image": "images/mushketers.jpg",
+    "title": "3 мушкитера.",
+    "genre": "Приключения",
+    "author": "Александр Дюма",
+    "price": "560"
+  },
+  {
+    "id": "9",
+    "image": "images/treasureisland.jpg",
+    "title": "Остров сокровищ.",
+    "genre": "Приключения",
+    "author": "Роберт Льюис Стивенсон",
+    "price": "1230"
+  },
+  {
+    "id": "10",
+    "image": "images/sabatini.jpg",
+    "title": "Одиссея капитана Блада.",
+    "genre": "Приключения",
+    "author": "Рафаэль Сабатини",
+    "price": "660"
+  },
+  {
+    "id": "11",
+    "image": "images/laughter.jpg",
+    "title": "Человек, который смеется.",
+    "genre": "Драма",
+    "author": "Виктор Гюго",
+    "price": "1400"
+  },
+  {
+    "id": "12",
+    "image": "images/sobor.jpg",
+    "title": "Notre Dame.",
+    "genre": "Драма",
+    "author": "Victor Hugo",
+    "price": "700"
+  },
+  {
+    "id": "13",
+    "image": "images/outcasts.jpg",
+    "title": "Отверженные.",
+    "genre": "Драма",
+    "author": "Victor Hugo",
+    "price": "900"
+  },
+  {
+    "id": "14",
+    "image": "images/belkin.jpg",
+    "title": "Повести Белкина.",
+    "genre": "Драма",
+    "author": "А.С. Пушкин",
+    "price": "1500"
+  },
+  {
+    "id": "15",
+    "image": "images/karamazovi.jpg",
+    "title": "Братья Карамазовы.",
+    "genre": "Драма",
+    "author": "Ф.М. Достоевский",
+    "price": "1000"
+  },
+  {
+    "id": "16",
+    "image": "images/dubrovskiy.jpg",
+    "title": "Дубровский.",
+    "genre": "Драма",
+    "author": "А.С. Пушкин",
+    "price": "800"
+  },
+  {
+    "id": "17",
+    "image": "images/drama_na_okhote.jpg",
+    "title": "Драма на охоте.",
+    "genre": "Драма",
+    "author": "А.П. Чехов",
+    "price": "300"
+  },
+  {
+    "id": "18",
+    "image": "images/captain_daughter.jpg",
+    "title": "Капитанская дочка.",
+    "genre": "Драма",
+    "author": "А.С. Пушкин",
+    "price": "800"
+  },
+  {
+    "id": "19",
+    "image": "images/silencezori.jpg",
+    "title": "А зори здесь тихие.",
+    "genre": "Драма",
+    "author": "Б. Васильев",
+    "price": "1200"
+  },
+  {
+    "id": "20",
+    "image": "images/naigle.jpg",
+    "title": "На игле.",
+    "genre": "Драма",
+    "author": "Ирвин Уэлш",
+    "price": "1500"
+  },
+  {
+    "id": "21",
+    "image": "images/Russian_history.jpg",
+    "title": "История России.",
+    "genre": "История",
+    "author": "Соловьев",
+    "price": "505"
+  },
+  {
+    "id": "22",
+    "image": "images/empiremustdie.jpg",
+    "title": "Империя должна умереть.",
+    "genre": "История",
+    "author": "Михаил Зыгарь",
+    "price": "900"
+  },
+  {
+    "id": "23",
+    "image": "images/oldrushistory.jpg",
+    "title": "Иcтория России с древнейших времен.",
+    "genre": "История",
+    "author": "Брайсон Билл",
+    "price": "1200"
+  },
+  {
+    "id": "24",
+    "image": "images/hungrynall.jpg",
+    "title": "Голод и изобилие. История питания в Европе.",
+    "genre": "История",
+    "author": "Массимо Монтанари",
+    "price": "600"
+  },
+  {
+    "id": "25",
+    "image": "images/englandhistory.jpg",
+    "title": "Краткая история Англии.",
+    "genre": "История",
+    "author": "Саймон Дженкинс",
+    "price": "800"
+  },
+  {
+    "id": "26",
+    "image": "images/zaratustra.jpg",
+    "title": "Так говорил Заратустра.",
+    "genre": "Философия",
+    "author": "Ф. Ницше",
+    "price": "1100"
+  },
+  {
+    "id": "27",
+    "image": "images/artofwar.jpg",
+    "title": "Искусство войны.",
+    "genre": "Философия",
+    "author": "Сунь-Цзы",
+    "price": "500"
+  },
+  {
+    "id": "28",
+    "image": "images/foryourself.jpg",
+    "title": "К себе самому.",
+    "genre": "Философия",
+    "author": "Марк Аврелий",
+    "price": "800"
+  },
+  {
+    "id": "29",
+    "image": "images/criticalmind.jpg",
+    "title": "Критика чистого разума.",
+    "genre": "Философия",
+    "author": "Иммануил Кант",
+    "price": "1100"
+  },
+  {
+    "id": "30",
+    "image": "images/haveorbe.jpg",
+    "title": "Иметь или быть.",
+    "genre": "Философия",
+    "author": "Эрих Фромм",
+    "price": "800"
+  },
+  {
+    "id": "31",
+    "image": "images/gosudarstvo.jpg",
+    "title": "Государство.",
+    "genre": "Философия",
+    "author": "Платон",
+    "price": "500"
+  },
+  {
+    "id": "32",
+    "image": "images/or-or.jpg",
+    "title": "или-или.",
+    "genre": "Философия",
+    "author": "Серен Кьеркегор",
+    "price": "900"
+  },
+  {
+    "id": "33",
+    "image": "images/anothersideofevil.jpg",
+    "title": "По ту сторону добра и зла.",
+    "genre": "Философия",
+    "author": "Фридрих Ницше",
+    "price": "1200"
+  },
+  {
+    "id": "34",
+    "image": "images/westphilosophy.jpg",
+    "title": "История западной философии.",
+    "genre": "Философия",
+    "author": "Бертран Рассел",
+    "price": "500"
+  },
+  {
+    "id": "35",
+    "image": "images/sovereign.jpg",
+    "title": "Государь.",
+    "genre": "Философия",
+    "author": "Никколо Макиавелли",
+    "price": "764"
+  },
+  {
+    "id": "36",
+    "image": "images/perfectcode.jpg",
+    "title": "Совершенный код.",
+    "genre": "Программирование",
+    "author": "С. Макконнелл",
+    "price": "950"
+  },
+  {
+    "id": "37",
+    "image": "images/programmer-pragmatic.jpg",
+    "title": "Программист-прагматик.",
+    "genre": "Программирование",
+    "author": "Э. Хант, Д. Томас",
+    "price": "1200"
+  },
+  {
+    "id": "38",
+    "image": "images/artofcoding.jpg",
+    "title": "Искусство программирования.",
+    "genre": "Программирование",
+    "author": "Дональд Э. Кнут",
+    "price": "1500"
+  },
+  {
+    "id": "39",
+    "image": "images/analysenalgorithmes.jpg",
+    "title": "Алгоритмы построение и анализ.",
+    "genre": "Программирование",
+    "author": "Томас Кормен",
+    "price": "1300"
+  },
+  {
+    "id": "40",
+    "image": "images/java.jpg",
+    "title": "Изучаем java.",
+    "genre": "Программирование",
+    "author": "Кэти Сьера и Берт Бейтс",
+    "price": "2100"
+  },
+  {
+    "id": "41",
+    "image": "images/perfectprogrammer.jpg",
+    "title": "Идеальный программист.",
+    "genre": "Программирование",
+    "author": "Роберт Мартин",
+    "price": "1500"
+  },
+  {
+    "id": "42",
+    "image": "images/python.jpg",
+    "title": "Изучаем python.",
+    "genre": "Программирование",
+    "author": "Эрик Мэтиз",
+    "price": "1200"
+  },
+  {
+    "id": "43",
+    "image": "images/javaforbeginners.jpg",
+    "title": "Программирование на Java для начинающих.",
+    "genre": "Программирование",
+    "author": "Васильев А.Н.",
+    "price": "100"
+  },
+  {
+    "id": "44",
+    "image": "images/refactoring.jpg",
+    "title": "Refactoring.",
+    "genre": "Программирование",
+    "author": "Martin Fowler",
+    "price": "550"
+  },
+  {
+    "id": "45",
+    "image": "images/codingonc.jpg",
+    "title": "Программирование на C++.",
+    "genre": "Программирование",
+    "author": "Васильев А.Н.",
+    "price": "250"
+  },
+  {
+    "id": "46",
+    "image": "images/javaeffective.jpg",
+    "title": "Java эффективное программирование.",
+    "genre": "Программирование",
+    "author": "Джошуа Блох",
+    "price": "700"
+  },
+  {
+    "id": "47",
+    "image": "images/javaphilosophy.jpg",
+    "title": "Философия Java.",
+    "genre": "Программирование",
+    "author": "Брюс Эккель",
+    "price": "1300"
+  },
+  {
+    "id": "48",
+    "image": "images/learningcsharp.jpg",
+    "title": "Изучаем C#.",
+    "genre": "Программирование",
+    "author": "O'Reilly",
+    "price": "1900"
+  },
+  {
+    "id": "49",
+    "image": "images/javascripttop.jpg",
+    "title": "Выразительный JavaScript.",
+    "genre": "Программирование",
+    "author": "Марейн Хавербеке",
+    "price": "1200"
+  },
+  {
+    "id": "50",
+    "image": "images/jsstart.jpg",
+    "title": "JavaScript с нуля.",
+    "genre": "Программирование",
+    "author": "Кирупа Чиннатхамби",
+    "price": "1200"
+  },
+];

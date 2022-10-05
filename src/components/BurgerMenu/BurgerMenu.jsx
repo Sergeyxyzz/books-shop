@@ -1,24 +1,69 @@
-import React, { useState } from 'react'
-import style from './BurgerMenu.module.scss'
+import React, { useState } from 'react';
+import './BurgerMenu.css';
+import { Link } from 'react-router-dom';
 
 const BurgerMenu = () => {
-  const [burgerClass, setBurgerClass] = useState('burgerBar unclicked')
-  const [menuClass, setMenuClass] = useState('menu hidden')
-  const [isMennuClicked, setIsMenuClicked] = useState(false)
-  return (
-    <div style={{width: '100%', height: '100vh'}}>
-      <nav>
-        <div className={style.burgerMenu}>
-           <div className={style.burgerClass}></div>
-           <div className={style.burgerClass}></div>
-           <div className={style.burgerClass}></div>
+  const [burger_class, setBurgerClass] = useState('burger-bar unclicked');
+  const [menu_class, setMenuClass] = useState('menu hidden');
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
+  const updateMenu = () => {
+    if (!isMenuClicked) {
+      setBurgerClass('burger-bar clicked');
+      setMenuClass('menu visible');
+    } else {
+      setBurgerClass('burger-bar unclicked');
+      setMenuClass('menu hidden');
+    }
+    setIsMenuClicked(!isMenuClicked);
+  };
+
+
+  return (
+    <div>
+      <nav>
+        <div className={'burger-menu'} onClick={updateMenu}>
+          <div className={burger_class}></div>
+          <div className={burger_class}></div>
+          <div className={burger_class}></div>
         </div>
       </nav>
-
-      <div className={style.menuClass}></div>
+      <div className={menu_class}>
+        <div className="ul-menu">
+          <div className="link">
+            <Link to="/" onClick={updateMenu}>
+              <h3>Все книги</h3>
+            </Link>
+          </div>
+          <div className="link">
+            <Link to="/drama" onClick={updateMenu}>
+              <h3>Драма</h3>
+            </Link>
+          </div>
+          <div className="link">
+            <Link to="/adventure" onClick={updateMenu}>
+              <h3>Приключения</h3>
+            </Link>
+          </div>
+          <div className="link">
+            <Link to="/history" onClick={updateMenu}>
+              <h3>История</h3>
+            </Link>
+          </div>
+          <div className="link">
+            <Link to="/philosophy" onClick={updateMenu}>
+              <h3>Философия</h3>
+            </Link>
+          </div>
+          <div className="link">
+            <Link to="/programming" onClick={updateMenu}>
+              <h3>Программирование</h3>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default BurgerMenu
+export default BurgerMenu;

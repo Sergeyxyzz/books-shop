@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Book from '../Book/Book';
+import axios from 'axios';
 
-const GenrePage = ({book, searchValue, genreTitle}) => {
+const GenrePage = ({searchValue, genreTitle}) => {
+  const [db, setDb] = useState([])
+
+  useEffect(() => {
+    axios
+    .get(`https://633768af5327df4c43d3d917.mockapi.io/Book?genre=${genreTitle}`)
+    .then((res) => setDb(res.data));
+  }, [])
+
   return (
     <div className="books">
       <h1 className="title">
         {genreTitle}
       </h1>
       <div className="books-grid" style={{marginBottom: '20px'}}>
-        <Book book={book} searchValue={searchValue} />
+        <Book book={db} searchValue={searchValue} />
       </div>
     </div>
   );

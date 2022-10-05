@@ -10,40 +10,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState('');
   const [book, setBook] = useState([]);
-
-  const [dramaBooks, setDramaBooks] = useState([]);
-  const [adventureBooks, setAdventureBooks] = useState([]);
-  const [historyBooks, setHistoryBooks] = useState([]);
-  const [philosophyBooks, setPhilosophyBooks] = useState([]);
-  const [programmingBooks, setProgrammingBooks] = useState([]);
-
   let db;
 
-  // get genres
-  useEffect(() => {
-    axios
-      .get('https://633768af5327df4c43d3d917.mockapi.io/Book?genre=драма')
-      .then((res) => setDramaBooks(res.data));
-
-    axios
-      .get('https://633768af5327df4c43d3d917.mockapi.io/Book?genre=приключения')
-      .then((res) => setAdventureBooks(res.data));
-
-    axios
-      .get('https://633768af5327df4c43d3d917.mockapi.io/Book?genre=история')
-      .then((res) => setHistoryBooks(res.data));
-
-    axios
-      .get('https://633768af5327df4c43d3d917.mockapi.io/Book?genre=философия')
-      .then((res) => setPhilosophyBooks(res.data));
-
-    axios
-      .get('https://633768af5327df4c43d3d917.mockapi.io/Book?genre=программирование')
-      .then((res) => setProgrammingBooks(res.data));
-  }, []);
-  // take it
-
-  // get home page all genres
   useEffect(() => {
     axios.get(db).then((res) => setBook(res.data));
     if (searchValue) {
@@ -54,7 +22,6 @@ function App() {
       axios.get(db).then((res) => setBook(res.data));
     }
   }, [currentPage, searchValue]);
-  // take it
 
   return (
     <div className="App">
@@ -74,67 +41,27 @@ function App() {
 
         <Route
           path="/drama"
-          element={
-            <GenrePage
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              book={dramaBooks}
-              searchValue={searchValue}
-              genreTitle={'Драма'}
-            />
-          }
+          element={<GenrePage searchValue={searchValue} genreTitle={'Драма'} />}
         />
 
         <Route
           path="/adventure"
-          element={
-            <GenrePage
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              book={adventureBooks}
-              searchValue={searchValue}
-              genreTitle={'Приключения'}
-            />
-          }
+          element={<GenrePage searchValue={searchValue} genreTitle={'Приключения'} />}
         />
 
         <Route
           path="/history"
-          element={
-            <GenrePage
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              book={historyBooks}
-              searchValue={searchValue}
-              genreTitle={'История'}
-            />
-          }
+          element={<GenrePage searchValue={searchValue} genreTitle={'История'} />}
         />
 
         <Route
           path="/philosophy"
-          element={
-            <GenrePage
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              book={philosophyBooks}
-              searchValue={searchValue}
-              genreTitle={'Философия'}
-            />
-          }
+          element={<GenrePage searchValue={searchValue} genreTitle={'Философия'} />}
         />
 
         <Route
           path="/programming"
-          element={
-            <GenrePage
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              book={programmingBooks}
-              searchValue={searchValue}
-              genreTitle={'Программирование'}
-            />
-          }
+          element={<GenrePage searchValue={searchValue} genreTitle={'Программирование'} />}
         />
       </Routes>
     </div>

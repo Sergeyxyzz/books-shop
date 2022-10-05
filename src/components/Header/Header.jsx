@@ -4,6 +4,7 @@ import { BsBookmarkHeart } from 'react-icons/bs';
 import style from './Header.module.scss';
 import { GiBookCover } from 'react-icons/gi';
 import { TextField } from '@mui/material';
+import {Link} from 'react-router-dom'
 
 const Header = ({ setSearchValue, searchValue }) => {
   return (
@@ -14,6 +15,7 @@ const Header = ({ setSearchValue, searchValue }) => {
             <GiBookCover className={style.icon} />
             <span className={style.title}>Books-shop 24</span>
           </div>
+          
           <li>
             {useMemo(() => {
               return (
@@ -31,6 +33,15 @@ const Header = ({ setSearchValue, searchValue }) => {
             }, [searchValue, setSearchValue])}
           </li>
           <li>О нас</li>
+
+          <ul>
+            <li><Link to='/'>Все книги</Link></li>
+            <li><Link to='/drama'>Драма</Link></li>
+            <li><Link to='/adventure'>Приключения</Link></li>
+            <li><Link to='/history'>История</Link></li>
+            <li><Link to='/philosophy'>Философия</Link></li>
+            <li><Link to='/programming'>Программирование</Link></li>
+          </ul>
 
           <ul className={style.cart}>
             <li>

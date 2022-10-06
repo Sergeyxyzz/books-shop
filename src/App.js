@@ -1,5 +1,5 @@
 import './App.scss';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './components/Header/Header';
 import { Routes, Route } from 'react-router-dom';
@@ -24,7 +24,7 @@ function App() {
   }, [currentPage, searchValue]);
 
   return (
-    <div className="App">
+    <div className="App" >
       <Header searchValue={searchValue} setSearchValue={setSearchValue} />
       <Routes>
         <Route

@@ -7,7 +7,11 @@ const Book = ({ book, searchValue }) => {
     <>
       {book
         .filter((elem) => {
-          if (elem.title.toLowerCase().includes(searchValue.toLowerCase()) || elem.genre.toLowerCase().includes(searchValue.toLowerCase()) || elem.author.toLowerCase().includes(searchValue.toLowerCase())) {
+          if (
+            elem.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+            elem.genre.toLowerCase().includes(searchValue.toLowerCase()) ||
+            elem.author.toLowerCase().includes(searchValue.toLowerCase())
+          ) {
             return true;
           }
           return false;
@@ -28,10 +32,10 @@ const Book = ({ book, searchValue }) => {
                   <h3 className={style.price}>{elem.price + 'руб.'}</h3>
                   <div className={style.buttons}>
                     <button>
-                      <FcLikePlaceholder title="Добавить в избранное" />
+                      <FcLikePlaceholder title="Добавить в избранное" className={style.btnLike} />
                     </button>
                     <button>
-                      <AiOutlinePlus title="Добавить в корзину" />
+                      <AiOutlinePlus title="Добавить в корзину" className={style.btnCart} />
                     </button>
                   </div>
                 </div>

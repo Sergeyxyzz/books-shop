@@ -18,7 +18,6 @@ const BurgerMenu = () => {
     setIsMenuClicked(!isMenuClicked);
   };
 
-
   return (
     <div>
       <nav>

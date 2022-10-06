@@ -5,6 +5,8 @@ nav {
   padding: 1em;
 }
 
+
+
 .burger-menu {
   min-height: 100%;
   width: 4em;
@@ -17,12 +19,10 @@ nav {
 .burger-bar {
   width: 4em;
   height: 0.5em;
-  background: rgb(0, 183, 255);
+  background: rgb(0, 56, 197);
   border-radius: 0.5em;
   z-index: 100;
 }
-
-
 
 .menu {
   width: 30%;
@@ -78,8 +78,12 @@ nav {
   width: 100%;
 }
 
+.link.clicked {
+  text-decoration: none;
+}
+
 .link:hover {
-  background-color: red;
+  background-color: rgb(79, 129, 255);
 }
 
 @media screen and (max-width: 500px) {

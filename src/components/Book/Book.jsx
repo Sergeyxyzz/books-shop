@@ -28,9 +28,9 @@ const Book = ({ book, searchValue }) => {
           }
           return false;
         })
-        .map((elem) => {
+        .map((elem, id) => {
           return (
-            <div className={style.book} key={uuidv4()}>
+            <div className={style.book} key={id}>
               <div>
                 <img src={elem.image} alt={elem.title} title={elem.title} />
               </div>

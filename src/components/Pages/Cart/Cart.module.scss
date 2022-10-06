@@ -1,0 +1,84 @@
+.wrapper {
+  margin: 0 auto;
+  width: 50%;
+  height: 300px;
+
+  .title {
+    text-align: center;
+  }
+}
+
+.book {
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+  }
+
+  transition: ease-in-out 0.5s;
+  &:hover {
+    transform: scale(1.1);
+
+    .btnCart {
+      transition: transform 0.4s ease-in;
+      transform: rotate(180deg);
+    }
+  }
+
+  // box-shadow: 6px -6px 2px 1px rgba(0, 0, 255, .2);
+  box-shadow: -3px 3px rgb(0, 45, 159), 0.5em -0.5em 0.3em rgb(0, 56, 197);
+
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  height: 300px;
+  margin-top: 20px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .title {
+    text-align: center;
+    position: absolute;
+    width: 140px;
+  }
+
+  .bookcontent {
+    display: flex;
+  }
+
+  .buttons {
+    text-align: center;
+
+    button {
+      margin-top: 20px;
+      background: transparent;
+      border: none;
+      width: 50px;
+      font-size: 3em;
+      cursor: pointer;
+    }
+
+    .btnLike {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .btnCart {
+      &:hover {
+        transform: scale(1.2) rotate(-180deg);
+      }
+    }
+  }
+
+  .undertitle {
+    margin-top: 100px;
+  }
+
+  .price {
+    text-align: center;
+  }
+}

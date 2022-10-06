@@ -5,12 +5,19 @@ import Header from './components/Header/Header';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Pages/Home';
 import GenrePage from './components/Pages/GenrePage';
+import Cart from './components/Pages/Cart/Cart';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState('');
   const [book, setBook] = useState([]);
   let db;
+
+  const [cart, setCart] = useState(false);
+  const showCart = () => {
+    setCart(!cart);
+    console.log(cart);
+  };
 
   useEffect(() => {
     axios.get(db).then((res) => setBook(res.data));
@@ -24,46 +31,57 @@ function App() {
   }, [currentPage, searchValue]);
 
   return (
-    <div className="App" >
-      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              book={book}
-              searchValue={searchValue}
-            />
-          }
-        />
+    <div className="App">
+      <Header
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        cart={cart}
+        setCart={setCart}
+        showCart={showCart}
+      />
+      {cart ? (
+        <Cart />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
 
-        <Route
-          path="/drama"
-          element={<GenrePage searchValue={searchValue} genreTitle={'Драма'} />}
-        />
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                book={book}
+                searchValue={searchValue}
+              />
+            }
+          />
 
-        <Route
-          path="/adventure"
-          element={<GenrePage searchValue={searchValue} genreTitle={'Приключения'} />}
-        />
+          <Route
+            path="/drama"
+            element={<GenrePage searchValue={searchValue} genreTitle={'Драма'} />}
+          />
 
-        <Route
-          path="/history"
-          element={<GenrePage searchValue={searchValue} genreTitle={'История'} />}
-        />
+          <Route
+            path="/adventure"
+            element={<GenrePage searchValue={searchValue} genreTitle={'Приключения'} />}
+          />
 
-        <Route
-          path="/philosophy"
-          element={<GenrePage searchValue={searchValue} genreTitle={'Философия'} />}
-        />
+          <Route
+            path="/history"
+            element={<GenrePage searchValue={searchValue} genreTitle={'История'} />}
+          />
 
-        <Route
-          path="/programming"
-          element={<GenrePage searchValue={searchValue} genreTitle={'Программирование'} />}
-        />
-      </Routes>
+          <Route
+            path="/philosophy"
+            element={<GenrePage searchValue={searchValue} genreTitle={'Философия'} />}
+          />
+
+          <Route
+            path="/programming"
+            element={<GenrePage searchValue={searchValue} genreTitle={'Программирование'} />}
+          />
+        </Routes>
+      )}
     </div>
   );
 }

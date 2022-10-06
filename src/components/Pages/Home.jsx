@@ -2,7 +2,7 @@ import React from 'react';
 import Book from '../Book/Book';
 import Pagination from '../Pagination/Pagination';
 
-const Home = ({ currentPage, setCurrentPage, book, searchValue }) => {
+const Home = ({ currentPage, setCurrentPage, book, searchValue}) => {
   return (
     <div className="books">
       {searchValue ? (
@@ -16,7 +16,10 @@ const Home = ({ currentPage, setCurrentPage, book, searchValue }) => {
       )}
 
       <div className="books-grid">
-        <Book book={book} searchValue={searchValue} />
+        <Book
+          book={book}
+          searchValue={searchValue}
+        />
       </div>
 
       <div className="pagination">

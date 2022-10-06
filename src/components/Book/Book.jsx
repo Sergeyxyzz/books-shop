@@ -1,8 +1,20 @@
 import style from './Book.module.scss';
 import { FcLikePlaceholder } from 'react-icons/fc';
 import { AiOutlinePlus } from 'react-icons/ai';
+import axios from 'axios';
+import { useState } from 'react';
 
 const Book = ({ book, searchValue }) => {
+  const [items, setItems] = useState([])
+
+  let db = 'https://633768af5327df4c43d3d917.mockapi.io/cart'
+
+  const addToCart = (item) => {
+    axios.post(db, item)
+    setItems(item)
+  }
+  console.log(items)
+
   return (
     <>
       {book
@@ -35,7 +47,7 @@ const Book = ({ book, searchValue }) => {
                       <FcLikePlaceholder title="Добавить в избранное" className={style.btnLike} />
                     </button>
                     <button>
-                      <AiOutlinePlus title="Добавить в корзину" className={style.btnCart} />
+                      <AiOutlinePlus title="Добавить в корзину" className={style.btnCart} onClick={() => addToCart(elem)} />
                     </button>
                   </div>
                 </div>

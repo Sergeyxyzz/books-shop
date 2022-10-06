@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsBookmarkHeart } from 'react-icons/bs';
 import style from './Header.module.scss';
@@ -8,8 +8,6 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { Link } from 'react-router-dom';
 
 const Header = ({ setSearchValue, searchValue, showCart}) => {
-
-
   return (
     <>
       <div className={style.navigation}>
@@ -41,9 +39,6 @@ const Header = ({ setSearchValue, searchValue, showCart}) => {
           </li>
 
           <ul className={style.cart}>
-            <li>
-              <BsBookmarkHeart className={style.icon} />
-            </li>
             <li>
               <AiOutlineShoppingCart className={style.icon} onClick={showCart} style={{cursor: 'pointer'}}/>
             </li>

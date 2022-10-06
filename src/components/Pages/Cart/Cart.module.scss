@@ -1,15 +1,31 @@
 .wrapper {
+  margin-top: 500px;
   margin: 0 auto;
-  width: 50%;
-  height: 300px;
+  width: 600px;
+  border: 1px solid black;
+  display: flex;
+  flex-flow: column;
 
   .title {
     text-align: center;
   }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    display: flex;
+  }
+
+  .closeIcon {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    color: red;
+    margin-left: 500px;
+  }
 }
 
 .book {
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 800px) {
     width: 100%;
     display: flex;
     margin-top: 20px;

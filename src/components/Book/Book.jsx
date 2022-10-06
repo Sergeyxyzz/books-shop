@@ -3,17 +3,17 @@ import { FcLikePlaceholder } from 'react-icons/fc';
 import { AiOutlinePlus } from 'react-icons/ai';
 import axios from 'axios';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const Book = ({ book, searchValue }) => {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
-  let db = 'https://633768af5327df4c43d3d917.mockapi.io/cart'
+  let db = 'https://633768af5327df4c43d3d917.mockapi.io/cart';
 
   const addToCart = (item) => {
-    axios.post(db, item)
-    setItems(item)
-  }
-  console.log(items)
+    axios.post(db, item);
+    setItems(item);
+  };
 
   return (
     <>
@@ -30,7 +30,7 @@ const Book = ({ book, searchValue }) => {
         })
         .map((elem) => {
           return (
-            <div className={style.book} key={elem.id}>
+            <div className={style.book} key={uuidv4()}>
               <div>
                 <img src={elem.image} alt={elem.title} title={elem.title} />
               </div>
@@ -47,7 +47,11 @@ const Book = ({ book, searchValue }) => {
                       <FcLikePlaceholder title="Добавить в избранное" className={style.btnLike} />
                     </button>
                     <button>
-                      <AiOutlinePlus title="Добавить в корзину" className={style.btnCart} onClick={() => addToCart(elem)} />
+                      <AiOutlinePlus
+                        title="Добавить в корзину"
+                        className={style.btnCart}
+                        onClick={() => addToCart(elem)}
+                      />
                     </button>
                   </div>
                 </div>

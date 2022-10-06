@@ -15,7 +15,7 @@ const GenrePage = ({ searchValue, genreTitle }) => {
     <div className="books">
       {searchValue ? (
         <h1 className="title" style={{ margin: '1em' }}>
-          Поиск книги в разделе {genreTitle}
+          Поиск книги в разделе {genreTitle}: <em>{searchValue}</em>
         </h1>
       ) : (
         <h1 className="title" style={{ margin: '1em' }}>

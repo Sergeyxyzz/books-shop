@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Pages/Home';
 import GenrePage from './components/Pages/GenrePage';
 import Cart from './components/Pages/Cart/Cart';
+import NotFound from './components/Pages/NotFound';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,6 +42,7 @@ function App() {
         items={items}
       />
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/"
           element={

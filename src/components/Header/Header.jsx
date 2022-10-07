@@ -40,7 +40,7 @@ const Header = ({ items, setSearchValue, searchValue }) => {
             </h4>
           </div>
           <div className={style.cart}>
-            <span className={style.itemsLength}>{items.length}</span>
+            <span className={style.itemsLength}>{items.length > 0 && items.length}</span>
             <Link to="/cart">
               <AiOutlineShoppingCart
                 className={style.icon}

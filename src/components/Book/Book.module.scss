@@ -5,6 +5,7 @@
     margin-top: 20px;
   }
 
+  background: white;
   transition: ease-in-out 0.5s;
   &:hover {
     transform: scale(1.1);
@@ -60,6 +61,12 @@
     .btnCart {
       &:hover {
         transform: scale(1.2) rotate(-180deg);
+      }
+
+      &:active{
+        color: green;
+        font-size: 1.2em;
+        margin-bottom: 5px;
       }
     }
   }

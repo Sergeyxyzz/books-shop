@@ -11,13 +11,14 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState('');
   const [book, setBook] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [items, setItems] = useState([]);
   let db;
 
   const [cart, setCart] = useState(false);
   const showCart = () => {
     setCart(!cart);
   };
-
 
   useEffect(() => {
     axios.get(db).then((res) => setBook(res.data));
@@ -29,60 +30,69 @@ function App() {
       axios.get(db).then((res) => setBook(res.data));
     }
   }, [currentPage, searchValue]);
-
   return (
     <div className="App">
-      {cart ? (
-        <Cart cart={cart} setCart={setCart} showCart={showCart}/>
-      ) : (
-        <>
-          <Header
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            cart={cart}
-            setCart={setCart}
-            showCart={showCart}
-          />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  book={book}
-                  searchValue={searchValue}
-                />
-              }
+      <Header
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        cart={cart}
+        setCart={setCart}
+        showCart={showCart}
+        items={items}
+      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              book={book}
+              searchValue={searchValue}
             />
+          }
+        />
 
-            <Route
-              path="/drama"
-              element={<GenrePage searchValue={searchValue} genreTitle={'Драма'} />}
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cart={cart}
+              setCart={setCart}
+              showCart={showCart}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+              items={items}
+              setItems={setItems}
             />
+          }
+        />
 
-            <Route
-              path="/adventure"
-              element={<GenrePage searchValue={searchValue} genreTitle={'Приключения'} />}
-            />
+        <Route
+          path="/drama"
+          element={<GenrePage searchValue={searchValue} genreTitle={'Драма'} />}
+        />
 
-            <Route
-              path="/history"
-              element={<GenrePage searchValue={searchValue} genreTitle={'История'} />}
-            />
+        <Route
+          path="/adventure"
+          element={<GenrePage searchValue={searchValue} genreTitle={'Приключения'} />}
+        />
 
-            <Route
-              path="/philosophy"
-              element={<GenrePage searchValue={searchValue} genreTitle={'Философия'} />}
-            />
+        <Route
+          path="/history"
+          element={<GenrePage searchValue={searchValue} genreTitle={'История'} />}
+        />
 
-            <Route
-              path="/programming"
-              element={<GenrePage searchValue={searchValue} genreTitle={'Программирование'} />}
-            />
-          </Routes>
-        </>
-      )}
+        <Route
+          path="/philosophy"
+          element={<GenrePage searchValue={searchValue} genreTitle={'Философия'} />}
+        />
+
+        <Route
+          path="/programming"
+          element={<GenrePage searchValue={searchValue} genreTitle={'Программирование'} />}
+        />
+      </Routes>
     </div>
   );
 }

@@ -1,13 +1,13 @@
-import React, { useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { BsBookmarkHeart } from 'react-icons/bs';
 import style from './Header.module.scss';
 import { GiBookCover } from 'react-icons/gi';
 import { TextField } from '@mui/material';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { Link } from 'react-router-dom';
 
-const Header = ({ setSearchValue, searchValue, showCart}) => {
+const Header = ({ items, setSearchValue, searchValue }) => {
+
   return (
     <>
       <div className={style.navigation}>
@@ -22,27 +22,27 @@ const Header = ({ setSearchValue, searchValue, showCart}) => {
           </div>
 
           <li>
-            {useMemo(() => {
-              return (
-                <TextField
-                  className={style.searchpanel}
-                  id="standard-basic"
-                  label="Поиск"
-                  variant="standard"
-                  type="text"
-                  value={searchValue}
-                  onChange={(e) => setSearchValue(e.target.value)}
-                  placeholder="Заглавие, жанр, автор."
-                />
-              );
-            }, [searchValue, setSearchValue])}
+            <TextField
+              className={style.searchpanel}
+              id="standard-basic"
+              label="Поиск"
+              variant="standard"
+              type="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Заглавие, жанр, автор."
+            />
           </li>
 
-          <ul className={style.cart}>
-            <li>
-              <AiOutlineShoppingCart className={style.icon} onClick={showCart} style={{cursor: 'pointer'}}/>
-            </li>
-          </ul>
+          <div className={style.cart}>
+            <span className={style.itemsLength}>{items.length}</span>
+            <Link to="/cart">
+              <AiOutlineShoppingCart
+                className={style.icon}
+                style={{ cursor: 'pointer', textDecoration: 'none', color: 'black' }}
+              />
+            </Link>
+          </div>
         </ul>
       </div>
     </>

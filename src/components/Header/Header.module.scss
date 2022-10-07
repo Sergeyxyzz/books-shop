@@ -10,12 +10,10 @@
   }
 }
 
-.navigation { 
+.navigation {
   display: flex;
-  background: rgb(255, 255, 255);
   margin: 0 auto;
   height: 80px;
-  background-color: green;
 
   .searchpanel {
     width: 150%;
@@ -38,8 +36,11 @@
     }
 
     .cart {
-      li {
-        margin-right: 30px;
+      margin-right: 30px;
+
+      .itemsLength {
+        font-size: 30px;
+        font-weight: bold;
       }
     }
   }

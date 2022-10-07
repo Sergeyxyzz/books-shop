@@ -3,15 +3,17 @@ import { FcLikePlaceholder } from 'react-icons/fc';
 import { AiOutlinePlus } from 'react-icons/ai';
 import axios from 'axios';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 const Book = ({ book, searchValue }) => {
   const [items, setItems] = useState([]);
 
-  let db = 'https://633768af5327df4c43d3d917.mockapi.io/cart';
-
   const addToCart = (item) => {
-    axios.post(db, item);
+    axios.post('https://633768af5327df4c43d3d917.mockapi.io/cart', item);
+    setItems(item);
+  };
+
+  const addToFavorite = (item) => {
+    axios.post('https://633768af5327df4c43d3d917.mockapi.io/favorite', item);
     setItems(item);
   };
 
@@ -43,9 +45,6 @@ const Book = ({ book, searchValue }) => {
                   </ul>
                   <h3 className={style.price}>{elem.price + 'руб.'}</h3>
                   <div className={style.buttons}>
-                    <button>
-                      <FcLikePlaceholder title="Добавить в избранное" className={style.btnLike} />
-                    </button>
                     <button>
                       <AiOutlinePlus
                         title="Добавить в корзину"

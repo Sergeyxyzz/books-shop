@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import style from './Header.module.scss';
 import { GiBookCover } from 'react-icons/gi';
@@ -7,6 +7,7 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { Link } from 'react-router-dom';
 
 const Header = ({ items, setSearchValue, searchValue }) => {
+
   return (
     <>
       <div className={style.navigation}>

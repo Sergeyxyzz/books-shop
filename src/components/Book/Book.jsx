@@ -6,6 +6,7 @@ const Book = ({ book, searchValue }) => {
 
   const addToCart = (item) => {
     axios.post('https://633768af5327df4c43d3d917.mockapi.io/cart', item);
+    alert('Товар добавлен в корзину')
   };
 
   return (

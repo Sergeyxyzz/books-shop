@@ -7,7 +7,7 @@ const Cart = ({items, setItems, isLoading, setIsLoading }) => {
   useEffect(() => {
     axios.get('https://633768af5327df4c43d3d917.mockapi.io/cart').then((res) => setItems(res.data));
     setIsLoading(false);
-  }, [items]);
+  }, []);
 
   const removeItem = (id) => {
     axios.delete(`https://633768af5327df4c43d3d917.mockapi.io/cart/${id}`);

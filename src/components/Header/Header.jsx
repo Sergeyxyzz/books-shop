@@ -7,7 +7,6 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { Link } from 'react-router-dom';
 
 const Header = ({ items, setSearchValue, searchValue }) => {
-
   return (
     <>
       <div className={style.navigation}>
@@ -33,7 +32,12 @@ const Header = ({ items, setSearchValue, searchValue }) => {
               placeholder="Заглавие, жанр, автор."
             />
           </li>
-
+          <div className={style.contacts}>
+            <h4>
+              Sergeyxyzz@yandex.ru <hr />
+              8-995-509-14-85
+            </h4>
+          </div>
           <div className={style.cart}>
             <span className={style.itemsLength}>{items.length}</span>
             <Link to="/cart">
@@ -45,6 +49,7 @@ const Header = ({ items, setSearchValue, searchValue }) => {
           </div>
         </ul>
       </div>
+      <hr />
     </>
   );
 };

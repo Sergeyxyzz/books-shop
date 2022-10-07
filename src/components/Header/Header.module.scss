@@ -10,13 +10,19 @@
   }
 }
 
+.contacts {
+  display: flex;
+  margin-top: -25px;
+  margin-left: 40px;
+}
+
 .navigation {
   display: flex;
   margin: 0 auto;
   height: 80px;
 
   .searchpanel {
-    width: 150%;
+    width: 100%;
     vertical-align: top;
   }
 
@@ -44,4 +50,17 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 800px) {
+  .cart {
+    position: absolute;
+    right: 0;
+    margin-top: 80px;
+  }
+
+  .contacts {
+    display: none;
+  }
+
 }

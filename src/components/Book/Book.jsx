@@ -1,20 +1,11 @@
 import style from './Book.module.scss';
-import { FcLikePlaceholder } from 'react-icons/fc';
 import { AiOutlinePlus } from 'react-icons/ai';
 import axios from 'axios';
-import { useState } from 'react';
 
 const Book = ({ book, searchValue }) => {
-  const [items, setItems] = useState([]);
 
   const addToCart = (item) => {
     axios.post('https://633768af5327df4c43d3d917.mockapi.io/cart', item);
-    setItems(item);
-  };
-
-  const addToFavorite = (item) => {
-    axios.post('https://633768af5327df4c43d3d917.mockapi.io/favorite', item);
-    setItems(item);
   };
 
   return (

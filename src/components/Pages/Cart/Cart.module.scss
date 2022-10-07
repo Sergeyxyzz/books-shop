@@ -48,6 +48,7 @@
 }
 
 .book {
+  background-color: rgb(255, 249, 235);
   @media screen and (max-width: 800px) {
     width: 100%;
     display: flex;
@@ -65,7 +66,7 @@
   }
 
   // box-shadow: 6px -6px 2px 1px rgba(0, 0, 255, .2);
-  box-shadow: -3px 3px rgb(0, 45, 159), 0.5em -0.5em 0.3em rgb(0, 56, 197);
+  box-shadow: -3px 3px rgb(84, 84, 84), 0.5em -0.5em 0.3em rgb(109, 109, 109);
 
   display: flex;
   width: 350px;
